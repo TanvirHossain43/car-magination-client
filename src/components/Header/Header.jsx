@@ -24,6 +24,7 @@ const Header = () => {
                             </ul>
                         </li>
                         <li><Link to="/login">Login</Link></li>
+                        <li><Link to="/signup">signUp</Link></li>
                     </ul>
                 </div>
                 <div className='w-20 rounded-full '>
@@ -44,6 +45,7 @@ const Header = () => {
                         </ul>
                     </li>
                     <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/signup">signUp</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
