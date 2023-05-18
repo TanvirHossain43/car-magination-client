@@ -2,6 +2,15 @@ import React from 'react';
 import signUp from '../../assets/signUp.png'
 
 const SignUp = () => {
+const handleSignUp =(event)=>{
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email= form.email.value;
+    const password =form.password.value;
+    console.log(name,email,password)
+}
+
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row">
@@ -9,7 +18,7 @@ const SignUp = () => {
                     <img src={signUp} alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 className='w-2/4'">
-                    <div className="card-body">
+                    <form onSubmit={handleSignUp} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -39,7 +48,7 @@ const SignUp = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">SignUp</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
