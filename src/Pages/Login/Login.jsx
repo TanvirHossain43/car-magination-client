@@ -3,7 +3,7 @@ import login from '../../assets/Login.png'
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext)
+    const { signIn, googleLogIn } = useContext(AuthContext)
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -22,6 +22,19 @@ const Login = () => {
 
     }
 
+    // google signin
+
+    const handleGoogleSignIn = () => {
+        googleLogIn()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row">
@@ -29,7 +42,7 @@ const Login = () => {
                     <img src={login} alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 className='w-2/4'">
-                    <form onSubmit={handleLogin} className="card-body">
+                    <form onSubmit={handleLogin} className="card-body  pb-0">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -46,7 +59,12 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
+                        <div className="divider">OR</div>
+
                     </form>
+                    <div className='mx-auto '>
+                        <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success">Login with Google</button>
+                    </div>  
                 </div>
             </div>
         </div>

@@ -58,7 +58,15 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {user ? <Link onClick={handleLogOut} className='btn'>LogOut</Link>
+
+
+                {user ?
+                    <div className="avatar">
+                        <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mr-4">
+                            <img src="" />
+                        </div>
+                        <Link onClick={handleLogOut} className='btn'>LogOut</Link>
+                    </div>
                     :
                     <Link to="/login" className='btn'>Login</Link>}
             </div>
