@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import signUp from '../../assets/signUp.png'
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const SignUp = () => {
-const handleSignUp =(event)=>{
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const email= form.email.value;
-    const password =form.password.value;
-    console.log(name,email,password)
-}
+
+    const { createUser } = useContext(AuthContext)
+
+    const handleSignUp = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+        console.log(name, email, password,photo)
+        createUser(email, password, photo, name)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+
+    }
 
     return (
         <div className="hero min-h-screen">
@@ -31,7 +45,7 @@ const handleSignUp =(event)=>{
                             </label>
                             <input type="text" placeholder="email" className="input input-bordered" name='email' />
                         </div>
-                      
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>

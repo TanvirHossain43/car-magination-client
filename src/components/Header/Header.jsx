@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/logo.jpg'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     return (
         <div className="navbar bg-gradient-to-r from-gray-800 to-slate-800 text-white px-7 text-xl ">
@@ -49,7 +58,9 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link  to="/login" className='btn'>Login</Link>
+                {user ? <Link onClick={handleLogOut} className='btn'>LogOut</Link>
+                    :
+                    <Link to="/login" className='btn'>Login</Link>}
             </div>
         </div>
     );
