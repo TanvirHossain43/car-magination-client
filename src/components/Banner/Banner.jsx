@@ -7,14 +7,14 @@ import banner5 from '../../assets/banner/banner1.jpg'
 
 const Banner = () => {
     return (
-        <div className="carousel w-full h-[600px]  ">
+        <div className="carousel w-full lg:h-[600px]  ">
 
             <div id="slide1" className="carousel-item relative w-full  ">
                 <img src={banner1} className="w-full " />
                 <div className="absolute  flex items-center h-full   text-right bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]  w-full ">
                     <div className='text-white w-1/2  space-y-7 text-left pl-5'>
-                        <h2 className='text-5xl font-bold'>CarMagination  </h2>
-                        <p className='text-xl text-gray-300'> Are you searching for your imaginary toys.There are many variations of car toys are available ,here you can find your desirable car toys.</p>
+                        <h2 className='lg:text-5xl text-xl font-bold'>CarMagination  </h2>
+                        <p className='lg:text-xl text-xs text-gray-300'> Are you searching for your imaginary toys.There are many variations of car toys are available ,here you can find your desirable car toys.</p>
                         <button className='btn btn-primary'>Explore Now!!!</button>
 
                     </div>
@@ -28,8 +28,8 @@ const Banner = () => {
                 <img src={banner2} className="w-full " />
                 <div className="absolute  flex items-center h-full   text-right bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]  w-full ">
                     <div className='text-white w-1/2 space-y-7 text-left pl-5'>
-                        <h2 className='text-5xl font-bold'>CarMagination  </h2>
-                        <p className='text-xl text-gray-300'> Are you searching for your imaginary toys.There are many variations of car toys are available ,here you can find your desirable car toys.</p>
+                        <h2 className='lg:text-5xl text-xl font-bold'>CarMagination  </h2>
+                        <p className='lg:text-xl text-xs text-gray-300'> Are you searching for your imaginary toys.There are many variations of car toys are available ,here you can find your desirable car toys.</p>
                         <button className='btn btn-primary'>Explore Now!!!</button>
 
                     </div>
@@ -43,8 +43,8 @@ const Banner = () => {
                 <img src={banner3} className="w-full " />
                 <div className="absolute  flex items-center h-full   text-right bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]  w-full ">
                     <div className='text-white w-1/2 space-y-7 text-left pl-5'>
-                        <h2 className='text-5xl font-bold'>CarMagination  </h2>
-                        <p className='text-xl text-gray-300'> Are you searching for your imaginary toys.There are many variations of car toys are available ,here you can find your desirable car toys.</p>
+                        <h2 className='lg:text-5xl text-xl font-bold'>CarMagination  </h2>
+                        <p className='lg:text-xl text-xs text-gray-300'> Are you searching for your imaginary toys.There are many variations of car toys are available ,here you can find your desirable car toys.</p>
                         <button className='btn btn-primary'>Explore Now!!!</button>
 
                     </div>
@@ -58,8 +58,8 @@ const Banner = () => {
                 <img src={banner4} className="w-full " />
                 <div className="absolute  flex items-center h-full   text-right bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]  w-full ">
                     <div className='text-white w-1/2 space-y-7 text-left pl-5'>
-                        <h2 className='text-5xl font-bold'>CarMagination  </h2>
-                        <p className='text-xl text-gray-300'> Are you searching for your imaginary toys.There are many variations of car toys are available ,here you can find your desirable car toys.</p>
+                        <h2 className='lg:text-5xl text-xl font-bold'>CarMagination  </h2>
+                        <p className='lg:text-xl text-xs text-gray-300'> Are you searching for your imaginary toys.There are many variations of car toys are available ,here you can find your desirable car toys.</p>
                         <button className='btn btn-primary'>Explore Now!!!</button>
 
                     </div>
@@ -73,8 +73,8 @@ const Banner = () => {
                 <img src={banner5} className="w-full " />
                 <div className="absolute  flex items-center h-full   text-right bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]  w-full ">
                     <div className='text-white w-1/2 space-y-7 text-left pl-5'>
-                        <h2 className='text-5xl font-bold'>CarMagination  </h2>
-                        <p className='text-xl text-gray-300'> Are you searching for your imaginary toys.There are many variations of car toys are available ,here you can find your desirable car toys.</p>
+                        <h2 className='lg:text-5xl text-xl font-bold'>CarMagination  </h2>
+                        <p className='lg:text-xl text-xs text-gray-300'> Are you searching for your imaginary toys.There are many variations of car toys are available ,here you can find your desirable car toys.</p>
                         <button className='btn btn-primary'>Explore Now!!!</button>
 
                     </div>
