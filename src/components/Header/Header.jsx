@@ -43,11 +43,8 @@ const Header = () => {
                         <Link to="/alltoys">
                             All Toys
                         </Link>
-                        <ul className="p-2">
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
-                        </ul>
                     </li>
+                    <li><Link to="/addatoy">Add A Toy</Link></li>
                     <li><Link to="/login">Login</Link></li>
                     <li><Link to="/signup">signUp</Link></li>
                 </ul>
