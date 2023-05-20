@@ -1,12 +1,55 @@
 import React from 'react';
+import Swal from 'sweetalert2'
+
 
 const AddToy = () => {
 
-    const handleAddToy=(event)=>{
+    const handleAddToy = (event) => {
         event.preventDefault();
         const form = event.target;
         const toyName = form.toy_name.value;
-        console.log(toyName)
+        const photoUrl = form.toy_photourl.value;
+        const toyCategory = form.category.value;
+        const sellerName = form.seller_name.value;
+        const sellerEmail = form.seller_email.value;
+        const toyPrice = form.price.value;
+        const toyQuantity = form.quantity.value;
+        const toyDescription = form.description.value;
+        const rating = form.rating.value;
+        const newToy =
+        {
+            toy_name: toyName,
+            picture: photoUrl,
+            sub_category: toyCategory,
+            seller_name: sellerName,
+            seller_email: sellerEmail,
+            price: toyPrice,
+            toy_description: toyDescription,
+            available_quantity: toyQuantity,
+            rating: rating,
+
+        }
+        console.log(newToy)
+        fetch('http://localhost:5000/alltoys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newToy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire(
+                        'Toy added successfully!',
+                        'Good Job!',
+                        'success'
+                    )
+                }
+            })
+
+
     }
     // Picture URL of the toy,
     // Name,
@@ -17,23 +60,30 @@ const AddToy = () => {
     // Rating,
     // Available quantity
     // Detail description
+
     return (
         <div className='w-10/12 mx-auto mt-6'>
             <form onSubmit={handleAddToy}>
                 <div className="relative z-0 w-full mb-6 group">
                     <input type="text" name="toy_name" id="floating_toy_name" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
 
-                    <label htmlFor="floating_toy_name" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Toy Name</label>
+                    <label htmlFor="floating_toy_name" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 mb-7">Toy Name</label>
                 </div>
 
                 <div className="relative z-0 w-full mb-6 group">
                     <input type="url" name="toy_photourl" id="floating_toy_photourl" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
 
-                    <label htmlFor="floating_toy_photourl" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Photo URL</label>
+                    <label htmlFor="floating_toy_photourl" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 mb-3">Photo URL</label>
                 </div>
-                <div className="relative z-0 w-full mb-6 group">
-                    <input type="text" name="category" id="floating_category" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label htmlFor="floating_category" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Toy Sub-Category</label>
+                <div className="grid md:grid-cols-2 md:gap-6">
+                    <div className='relative z-0 w-full mb-6 group'>
+                        <input type="text" name="category" id="floating_category" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label htmlFor="floating_category" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Toy Sub-Category</label>
+                    </div>
+                    <div className="relative z-0 w-full mb-6 group">
+                        <input type="text" name="rating" id="floating_rating" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label htmlFor="floating_rating" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Toy Rating</label>
+                    </div>
                 </div>
                 <div className="grid md:grid-cols-2 md:gap-6">
                     <div className="relative z-0 w-full mb-6 group">
@@ -41,7 +91,7 @@ const AddToy = () => {
                         <label htmlFor="floating_seller_name" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Seller Name</label>
                     </div>
                     <div className="relative z-0 w-full mb-6 group">
-                        <input type="email" name="seller-email" id="floating_seller_email" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <input type="email" name="seller_email" id="floating_seller_email" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label htmlFor="floating_seller_email" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Seller Email</label>
                     </div>
                 </div>
