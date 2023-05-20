@@ -39,14 +39,19 @@ const Header = () => {
             <div className="navbar-center hidden lg:flex text-white">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to="/">Home</Link></li>
-                    <li tabIndex={0}>
+                    <li>
                         <Link to="/alltoys">
                             All Toys
                         </Link>
                     </li>
+                   {user? <div className='flex'>
+                    <li><Link to="/mytoys">My Toys</Link></li>
                     <li><Link to="/addatoy">Add A Toy</Link></li>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/signup">signUp</Link></li>
+                   </div>
+                   :
+                   ""
+                   }
+                    
                 </ul>
             </div>
             <div className="navbar-end">

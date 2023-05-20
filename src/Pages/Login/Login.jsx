@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
 import login from '../../assets/Login.png'
 import { AuthContext } from '../../Providers/AuthProvider';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const { signIn, googleLogIn } = useContext(AuthContext)
+    const location = useLocation()
+   const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -15,6 +19,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error.message)
@@ -29,6 +34,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error.message)
@@ -64,7 +70,7 @@ const Login = () => {
                     </form>
                     <div className='mx-auto '>
                         <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success">Login with Google</button>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
