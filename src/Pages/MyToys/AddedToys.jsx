@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
-const AddedToys = ({ toy,handleDelete }) => {
-    
-    const { _id, seller_name, price, toy_name, rating, available_quantity, sub_category, picture } = toy
+
+const AddedToys = ({ toy, handleDelete }) => {
+
+    const { _id, seller_name, price, toy_name, rating, available_quantity, sub_category, picture } = toy;
+
     return (
 
         <tbody>
@@ -29,15 +32,19 @@ const AddedToys = ({ toy,handleDelete }) => {
                     ${price}
                 </td>
                 <td className="px-6 py-4">
-                    <button className='btn btn-primary'> update</button>
+                    <Link to={`/updatedetails/${_id}`}><button className='btn btn-primary'> update</button></Link>
+
                 </td>
 
                 <td className="px-6 py-4">
-                    <button onClick={()=>handleDelete(_id)} className='btn btn-warning'>Delete</button>
+                    <button onClick={() => handleDelete(_id)} className='btn btn-warning'>Delete</button>
                 </td>
             </tr>
 
         </tbody>
+
+
+
 
     );
 };

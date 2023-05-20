@@ -11,6 +11,8 @@ import ViewDetails from "../LayOut/ViewDetails/ViewDetails";
 import AddToy from "../Pages/AddToys/AddToy";
 import PrivateRoute from "./PrivateRoute";
 import MyToys from "../Pages/MyToys/MyToys";
+import UpdateDetails from "../components/UpdateDetails/UpdateDetails";
+import Blog from "../Pages/Blog/Blog";
 
 
 const router = createBrowserRouter([
@@ -31,12 +33,16 @@ const router = createBrowserRouter([
         element: <SignUp></SignUp>
       },
       {
-        path:'addatoy',
-        element:<PrivateRoute><AddToy></AddToy></PrivateRoute>
+        path: 'addatoy',
+        element: <PrivateRoute><AddToy></AddToy></PrivateRoute>
       },
       {
-        path:'mytoys',
-        element:<PrivateRoute><MyToys></MyToys></PrivateRoute>
+        path: 'mytoys',
+        element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
+      },
+      {
+        path: 'blog',
+        element: <Blog></Blog>
       },
 
       {
@@ -45,8 +51,14 @@ const router = createBrowserRouter([
       },
       {
         path: 'viewdetails/:id',
-        element:<PrivateRoute> <ViewDetails></ViewDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/alltoys/${params.id}`)
+        element: <PrivateRoute> <ViewDetails></ViewDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://car-toys-server.vercel.app/alltoys/${params.id}`)
+      },
+      {
+        path: 'updatedetails/:id',
+        element: <UpdateDetails></UpdateDetails>,
+        loader: ({ params }) => fetch(`https://car-toys-server.vercel.app/alltoys/${params.id}`)
+
       }
     ]
   },

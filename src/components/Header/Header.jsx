@@ -26,10 +26,17 @@ const Header = () => {
                             <Link to="/alltoys" className="justify-between">
                                 All Toys
                             </Link>
-                           
+
                         </li>
-                        <li><Link to="/login">Login</Link></li>
-                        <li><Link to="/signup">signUp</Link></li>
+                        <li><Link to="/blog">Blog</Link></li>
+                        {user ? <div className='flex'>
+                            <li><Link to="/mytoys">My Toys</Link></li>
+                            <li><Link to="/addatoy">Add A Toy</Link></li>
+                        </div>
+                            :
+                            ""
+                        }
+
                     </ul>
                 </div>
                 <div className='lg:w-20 w-16 rounded-full '>
@@ -44,14 +51,15 @@ const Header = () => {
                             All Toys
                         </Link>
                     </li>
-                   {user? <div className='flex'>
-                    <li><Link to="/mytoys">My Toys</Link></li>
-                    <li><Link to="/addatoy">Add A Toy</Link></li>
-                   </div>
-                   :
-                   ""
-                   }
-                    
+                    <li><Link to="/blog">Blog</Link></li>
+                    {user ? <div className='flex'>
+                        <li><Link to="/mytoys">My Toys</Link></li>
+                        <li><Link to="/addatoy">Add A Toy</Link></li>
+                    </div>
+                        :
+                        ""
+                    }
+
                 </ul>
             </div>
             <div className="navbar-end">
@@ -60,7 +68,7 @@ const Header = () => {
                 {user ?
                     <div className="avatar">
                         <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mr-4">
-                            <img src={user?.photo}  title={user?.name}/>
+                            <img src={user?.photo} title={user?.name} />
                         </div>
                         <Link onClick={handleLogOut} className='btn'>LogOut</Link>
                     </div>

@@ -7,7 +7,7 @@ const MyToys = () => {
 
     const { user } = useContext(AuthContext)
     const [addedToys, setAddedToys] = useState([])
-    const url = `http://localhost:5000/alltoys?email=${user?.email}`
+    const url = `https://car-toys-server.vercel.app/alltoys?email=${user?.email}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -19,14 +19,9 @@ const MyToys = () => {
     }, [url])
 
     const handleDelete = id => {
-        const proceed = Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Are you sure to delete!',
-           
-          })
+        const proceed = confirm('Are you sure to delete')
         if (proceed) {
-            fetch(`http://localhost:5000/alltoys/${id}`, {
+            fetch(`https://car-toys-server.vercel.app/alltoys/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
