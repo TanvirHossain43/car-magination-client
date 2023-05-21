@@ -23,49 +23,49 @@ const PhotoGallery = () => {
                 <h2 className='text-3xl text-center font-extrabold text-teal-600'>Car Toy Photo Gallery</h2>
                 <p className='text-xl text-center'>This gallery will show you what kind of car toys you will find here....</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="grid gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid gap-4">
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src={car9} />
+                        <img className="h-auto max-w-full rounded-lg" src={car9} />
                     </div>
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src={car1} />
+                        <img className="h-auto max-w-full rounded-lg" src={car1} />
                     </div>
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src={car12} />
-                    </div>
-                </div>
-                <div class="grid gap-4">
-                    <div>
-                        <img class="h-auto max-w-full rounded-lg" src={car3} />
-                    </div>
-                    <div>
-                        <img class="h-auto max-w-full rounded-lg" src={car14} />
-                    </div>
-                    <div>
-                        <img class="h-auto max-w-full rounded-lg" src={car11} />
+                        <img className="h-auto max-w-full rounded-lg" src={car12} />
                     </div>
                 </div>
-                <div class="grid gap-4">
+                <div className="grid gap-4">
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src={car15} />
+                        <img className="h-auto max-w-full rounded-lg" src={car3} />
                     </div>
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src={car10} />
+                        <img className="h-auto max-w-full rounded-lg" src={car14} />
                     </div>
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src={car4} />
+                        <img className="h-auto max-w-full rounded-lg" src={car11} />
                     </div>
                 </div>
-                <div class="grid gap-4">
+                <div className="grid gap-4">
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src={car16} />
+                        <img className="h-auto max-w-full rounded-lg" src={car15} />
                     </div>
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src={car7} />
+                        <img className="h-auto max-w-full rounded-lg" src={car10} />
                     </div>
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src={car13} alt="" />
+                        <img className="h-auto max-w-full rounded-lg" src={car4} />
+                    </div>
+                </div>
+                <div className="grid gap-4">
+                    <div>
+                        <img className="h-auto max-w-full rounded-lg" src={car16} />
+                    </div>
+                    <div>
+                        <img className="h-auto max-w-full rounded-lg" src={car7} />
+                    </div>
+                    <div>
+                        <img className="h-auto max-w-full rounded-lg" src={car13} alt="" />
                     </div>
                 </div>
             </div>

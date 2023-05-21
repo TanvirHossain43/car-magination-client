@@ -15,7 +15,7 @@ const MyToys = () => {
 
 
    
-    const url = `http://localhost:5000/categorytoys?email=${user?.email}&sort=${asc ? 'asc' : 'desc'}`
+    const url = `https://car-toys-server.vercel.app/categorytoys?email=${user?.email}&sort=${asc ? 'asc' : 'desc'}`
 
     useEffect(() => {
         fetch(url)
