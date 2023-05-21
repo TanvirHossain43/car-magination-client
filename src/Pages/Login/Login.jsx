@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import login from '../../assets/Login.png'
 import { AuthContext } from '../../Providers/AuthProvider';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const { signIn, googleLogIn } = useContext(AuthContext)
     const location = useLocation()
-   const navigate = useNavigate()
+    const navigate = useNavigate()
+    useTitle('Login')
     const from = location.state?.from?.pathname || '/'
 
     const handleLogin = (event) => {
@@ -16,14 +18,15 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password)
         signIn(email, password)
-            .then(result => {
+            .then((result) => {
                 const loggedUser = result.user;
-                console.log(loggedUser)
-                navigate(from, { replace: true })
+                const { displayName, photoURL } = loggedUser;
+                console.log(displayName, photoURL);
+                navigate(from, { replace: true });
             })
-            .catch(error => {
-                console.log(error.message)
-            })
+            .catch((error) => {
+                console.log(error.message);
+            });
 
     }
 
@@ -65,10 +68,13 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
+                        <div>
+                            <h2>New to this website? <Link to="/signup" className='text-green-800'>SignUp</Link></h2>
+                        </div>
                         <div className="divider">OR</div>
 
                     </form>
-                    <div className='mx-auto '>
+                    <div className='mx-auto pb-3'>
                         <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success">Login with Google</button>
                     </div>
                 </div>

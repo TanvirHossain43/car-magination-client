@@ -68,7 +68,7 @@ const Header = () => {
                 {user ?
                     <div className="avatar">
                         <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mr-4">
-                            <img src={user?.photo} title={user?.name} />
+                            <img src={user?.photoURL} title={user?.displayName} />
                         </div>
                         <Link onClick={handleLogOut} className='btn'>LogOut</Link>
                     </div>

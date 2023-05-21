@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
 import signUp from '../../assets/signUp.png'
 import { AuthContext } from '../../Providers/AuthProvider';
+import useTitle from '../../hooks/useTitle';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
 
     const { createUser } = useContext(AuthContext)
+    useTitle('SignUp')
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -13,16 +16,24 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-        console.log(name, email, password,photo)
+        console.log(name, email, password, photo)
         createUser(email, password, photo, name)
-            .then(result => {
+            .then((result) => {
                 const user = result.user;
-                console.log(user)
+                return user.updateProfile({
+                    displayName: name,
+                    photoURL: photo,
+                })
+                    .then(() => {
+                        return user;
+                    })
+                    .catch((error) => {
+                        throw new ('Error updating user profile');
+                    });
             })
-            .catch(error => {
-                console.log(error.message)
-            })
-
+            .catch((error) => {
+                throw new('Error creating user');
+            });
     }
 
     return (
@@ -61,6 +72,9 @@ const SignUp = () => {
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">SignUp</button>
+                        </div>
+                        <div>
+                            <h2>Already a user? <span className='text-emerald-500'><Link to="/login">Login</Link></span></h2>
                         </div>
                     </form>
                 </div>

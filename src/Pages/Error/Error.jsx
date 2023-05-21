@@ -1,5 +1,5 @@
 import React from 'react';
-import error from '../../assets/error.jpg'
+
 import error2 from '../../assets/error2.webp'
 import { Link } from 'react-router-dom';
 

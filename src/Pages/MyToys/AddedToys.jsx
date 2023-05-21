@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 
-const AddedToys = ({ toy, handleDelete }) => {
+const AddedToys = ({ toy, handleDelete,handleUpdate}) => {
 
     const { _id, seller_name, price, toy_name, rating, available_quantity, sub_category, picture } = toy;
 

@@ -10,7 +10,7 @@ const FeatureProduct = () => {
     return (
         <div className='mt-10'>
             <div >
-                <h2 className='text-3xl font-extrabold text-center'>Feature Products</h2>
+                <h2 className='text-3xl font-extrabold text-center text-teal-600'>Feature Products</h2>
                 <p className='text-center'>Highlight popular or newly released car toys..</p>
             </div>
             <div className='grid md:grid-cols-3 mx-auto items-baseline justify-items-center mt-6'>

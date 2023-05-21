@@ -4,8 +4,10 @@ import PhotoGallery from '../../components/PhotoGallery/PhotoGallery';
 import FeatureProduct from '../../components/FeatureProduct/FeatureProduct';
 import FaqSection from '../../components/FaqSection/FaqSection';
 import SubCategory from '../../components/SubCategory/SubCategory';
+import useTitle from '../../hooks/useTitle';
 
 const Home = () => {
+    useTitle('')
     return (
         <div>
             <Banner></Banner>

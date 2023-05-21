@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import AddedToys from './AddedToys';
 import Swal from 'sweetalert2'
+import useTitle from '../../hooks/useTitle';
 
 const MyToys = () => {
 
     const { user } = useContext(AuthContext)
     const [addedToys, setAddedToys] = useState([])
+    useTitle('My-Toys')
     const url = `https://car-toys-server.vercel.app/alltoys?email=${user?.email}`
     useEffect(() => {
         fetch(url)
@@ -17,6 +19,23 @@ const MyToys = () => {
             })
 
     }, [url])
+
+    const handleUpdate = id => {
+        const proceed = confirm('Are you sure to update the data')
+        if (proceed) {
+            fetch(`https://car-toys-server.vercel.app/alltoys/${id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'applicatin/json'
+                },
+                body: JSON.stringify({ status: 'confirm' })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
+        }
+    }
 
     const handleDelete = id => {
         const proceed = confirm('Are you sure to delete')
@@ -64,6 +83,7 @@ const MyToys = () => {
                         addedToys.map(toy => <AddedToys
                             key={toy._id}
                             toy={toy}
+                            handleUpdate={handleUpdate}
                             handleDelete={handleDelete}
                         ></AddedToys>)
                     }

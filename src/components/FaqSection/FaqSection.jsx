@@ -5,7 +5,7 @@ import photo from '../../assets/faq.png'
 const FaqSection = () => {
     return (
         <div className='mt-16'>
-            <h2 className='text-3xl font-extrabold text-center mb-2'>Frequently Asked Questions</h2>
+            <h2 className='text-3xl font-extrabold text-center mb-2 text-teal-600'>Frequently Asked Questions</h2>
 
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row">

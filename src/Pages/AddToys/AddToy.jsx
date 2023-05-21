@@ -1,8 +1,10 @@
 import React from 'react';
 import Swal from 'sweetalert2'
+import useTitle from '../../hooks/useTitle';
 
 
 const AddToy = () => {
+    useTitle('Add a Toy')
 
     const handleAddToy = (event) => {
         event.preventDefault();

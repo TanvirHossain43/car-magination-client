@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Toys from './Toys';
+import useTitle from '../../hooks/useTitle';
 
 const AllToys = () => {
 
     const [AllToys, setAllToys] = useState([])
+    useTitle('All-Toys')
     useEffect(() => {
         fetch('https://car-toys-server.vercel.app/alltoys')
             .then(res => res.json())

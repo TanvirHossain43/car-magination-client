@@ -20,7 +20,7 @@ const PhotoGallery = () => {
 
         <div className='mt-20'>
             <div className='mb-20 space-y-4'> 
-                <h2 className='text-3xl text-center font-extrabold'>Car Toy Photo Gallery</h2>
+                <h2 className='text-3xl text-center font-extrabold text-teal-600'>Car Toy Photo Gallery</h2>
                 <p className='text-xl text-center'>This gallery will show you what kind of car toys you will find here....</p>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
