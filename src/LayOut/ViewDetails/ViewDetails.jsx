@@ -8,12 +8,12 @@ const ViewDetails = () => {
     const { available_quantity, picture, price, rating, seller_email, seller_name, sub_category, toy_description, toy_name } = toyDetails;
 
     return (
-        <div className='mt-10 mb-10'>
+        <div className='mt-10 mb-10 '>
             <div className="card lg:card-side bg-base-100 shadow-xl w-1/2 mx-auto  text-white rounded-xl">
-                <figure className='w-1/2'>
-                    <img src={picture} className='h-full' />
-                </figure>
-                <div className="card-body " style={{ backgroundColor: '#00203F' }} >
+                <div className='w-1/2'>
+                    <img src={picture} className='h-full ' />
+                </div>
+                <div className="card-body w-1/2 " style={{ backgroundColor: '#00203F' }} >
 
                     <h2 className="card-title text-2xl" style={{ color: '#ADF0D1' }}>
                         {toy_name}

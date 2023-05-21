@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyToys from "../Pages/MyToys/MyToys";
 import UpdateDetails from "../components/UpdateDetails/UpdateDetails";
 import Blog from "../Pages/Blog/Blog";
+import Error from "../Pages/Error/Error";
 
 
 const router = createBrowserRouter([
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:'*',
+    element:<Error></Error>
+  }
 ]);
 
 
