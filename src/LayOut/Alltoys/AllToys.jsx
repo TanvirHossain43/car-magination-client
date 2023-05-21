@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
-import Toys from './Toys';
+
 import useTitle from '../../hooks/useTitle';
 
 const AllToys = () => {

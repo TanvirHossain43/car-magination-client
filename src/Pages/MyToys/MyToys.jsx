@@ -10,8 +10,13 @@ const MyToys = () => {
 
     const { user } = useContext(AuthContext)
     const [addedToys, setAddedToys] = useState([])
+    const [asc, setAsc] = useState(true)
     useTitle('My-Toys')
-    const url = `https://car-toys-server.vercel.app/alltoys?email=${user?.email}`
+
+
+   
+    const url = `http://localhost:5000/categorytoys?email=${user?.email}&sort=${asc ? 'asc' : 'desc'}`
+
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -22,22 +27,6 @@ const MyToys = () => {
 
     }, [url])
 
-    // const handleUpdate = id => {
-    //     const proceed = confirm('Are you sure to update the data')
-    //     if (proceed) {
-    //         fetch(`https://car-toys-server.vercel.app/alltoys/${id}`, {
-    //             method: 'PATCH',
-    //             headers: {
-    //                 'content-type': 'applicatin/json'
-    //             },
-    //             body: JSON.stringify({ status: 'confirm' })
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 console.log(data)
-    //             })
-    //     }
-    // }
 
     const handleDelete = id => {
         const proceed = confirm('Are you sure to delete')
@@ -63,11 +52,13 @@ const MyToys = () => {
     }
 
 
-    
+
 
     return (
         <div>
-            <h2>my toys : ${addedToys.length}</h2>
+            <button className='btn btn-primary'
+                onClick={() => setAsc(!asc)}
+            >{asc ? 'high to low' : 'low to high'}</button>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
 
 
@@ -85,13 +76,7 @@ const MyToys = () => {
                             <th scope="col" className="px-6 py-3">Delete</th>
                         </tr>
                     </thead>
-                    {/* <AddedToys
-                            key={toy._id}
-                            toy={toy}
-                            handleUpdate={handleUpdate}
-                            handleDelete={handleDelete}
-                        ></AddedToys>
-                     */}
+
                     {
                         addedToys.map(toy => (
 
