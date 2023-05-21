@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
-import AddedToys from './AddedToys';
+// import AddedToys from './AddedToys';
 import Swal from 'sweetalert2'
 import useTitle from '../../hooks/useTitle';
+import { Link } from 'react-router-dom';
+import UpdateDetails from '../../components/UpdateDetails/UpdateDetails';
 
 const MyToys = () => {
 
@@ -20,22 +22,22 @@ const MyToys = () => {
 
     }, [url])
 
-    const handleUpdate = id => {
-        const proceed = confirm('Are you sure to update the data')
-        if (proceed) {
-            fetch(`https://car-toys-server.vercel.app/alltoys/${id}`, {
-                method: 'PATCH',
-                headers: {
-                    'content-type': 'applicatin/json'
-                },
-                body: JSON.stringify({ status: 'confirm' })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                })
-        }
-    }
+    // const handleUpdate = id => {
+    //     const proceed = confirm('Are you sure to update the data')
+    //     if (proceed) {
+    //         fetch(`https://car-toys-server.vercel.app/alltoys/${id}`, {
+    //             method: 'PATCH',
+    //             headers: {
+    //                 'content-type': 'applicatin/json'
+    //             },
+    //             body: JSON.stringify({ status: 'confirm' })
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 console.log(data)
+    //             })
+    //     }
+    // }
 
     const handleDelete = id => {
         const proceed = confirm('Are you sure to delete')
@@ -59,6 +61,10 @@ const MyToys = () => {
         }
 
     }
+
+
+    
+
     return (
         <div>
             <h2>my toys : ${addedToys.length}</h2>
@@ -79,14 +85,51 @@ const MyToys = () => {
                             <th scope="col" className="px-6 py-3">Delete</th>
                         </tr>
                     </thead>
-                    {
-                        addedToys.map(toy => <AddedToys
+                    {/* <AddedToys
                             key={toy._id}
                             toy={toy}
                             handleUpdate={handleUpdate}
                             handleDelete={handleDelete}
-                        ></AddedToys>)
+                        ></AddedToys>
+                     */}
+                    {
+                        addedToys.map(toy => (
+
+                            <tbody key={toy._id}>
+                                <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+
+                                    <td className="px-6 py-4">
+                                        <img className='w-20 rounded-xl' src={toy.picture} alt="" />
+                                    </td>
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {toy.toy_name}
+                                    </th>
+
+                                    <td className="px-6 py-4">
+                                        {toy.seller_name}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {toy.sub_category}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {toy.available_quantity}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        ${toy.price}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        <Link to={`/updatedetails/${toy._id}`}><button className='btn btn-primary'> update</button></Link>
+
+                                    </td>
+
+                                    <td className="px-6 py-4">
+                                        <button onClick={() => handleDelete(toy._id)} className='btn btn-warning'>Delete</button>
+                                    </td>
+                                </tr>
+
+                            </tbody>))
                     }
+
                 </table>
             </div>
         </div>

@@ -39,8 +39,13 @@ const Header = () => {
 
                     </ul>
                 </div>
-                <div className='lg:w-20 w-16 rounded-full '>
-                    <img className=' rounded-full' src={logo} alt="" />
+                <div className=' rounded-full flex md:flex-row flex-col  gap-x-2 items-center '>
+                    <div >
+                        <img className=' rounded-full md:w-16 w-8 ' src={logo} alt="" />
+                    </div>
+                    <div>
+                        <h2 className='text-white md:text-xl font-extralight text-xs'>CarMagination</h2>
+                    </div>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex text-white">

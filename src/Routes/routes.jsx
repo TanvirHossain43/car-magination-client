@@ -50,23 +50,24 @@ const router = createBrowserRouter([
         path: 'alltoys',
         element: <AllToys></AllToys>,
       },
-      {
-        path: 'updatedetails/:id',
-        element: <UpdateDetails></UpdateDetails>,
-        loader: ({ params }) => fetch(`https://car-toys-server.vercel.app/alltoys/${params.id}`)
 
-      },
       {
         path: 'viewdetails/:id',
         element: <PrivateRoute> <ViewDetails></ViewDetails></PrivateRoute>,
         loader: ({ params }) => fetch(`https://car-toys-server.vercel.app/alltoys/${params.id}`)
       },
-     
+      {
+        path: 'updatedetails/:id',
+        element: <PrivateRoute><UpdateDetails></UpdateDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://car-toys-server.vercel.app/alltoys/${params.id}`)
+
+      },
+
     ]
   },
   {
-    path:'*',
-    element:<Error></Error>
+    path: '*',
+    element: <Error></Error>
   }
 ]);
 
